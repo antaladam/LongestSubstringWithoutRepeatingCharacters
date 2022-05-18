@@ -14,11 +14,29 @@ public class Solution {
             if (current.indexOf(s.charAt(i)) == -1){
                 current += s.charAt(i);
                 counter++;
+                if (i == (s.length()-1)) {
+                    solutions[solpos+1] = counter;
+                }
             }
             else {
                 solutions[solpos] = counter;
-                System.out.println(solutions[solpos]);
                 current = String.valueOf(s.charAt(i));
+                counter = 1;
+                solpos++;
+            }
+
+        }
+        for (int j = (s.length()-1); j > 0; j--){
+            if (current.indexOf(s.charAt(j)) == -1){
+                current += s.charAt(j);
+                counter++;
+                if (j == 1) {
+                    solutions[solpos+1] = counter;
+                }
+            }
+            else {
+                solutions[solpos] = counter;
+                current = String.valueOf(s.charAt(j));
                 counter = 1;
                 solpos++;
             }
